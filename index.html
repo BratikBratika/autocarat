@@ -6,7 +6,6 @@
 <title>Autocarat — Автовикуп Київ</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -22,25 +21,16 @@ color:white;
 position:relative;
 }
 
-/* ===== НІЧНИЙ КИЇВ ===== */
+/* ===== НІЧНИЙ КИЇВ З РОДИНОЮ-МАТІР'Ю ===== */
 
 .background{
 position:absolute;
 width:100%;
 height:100%;
 background:
-linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-url('https://images.unsplash.com/photo-1603481546233-62695b6a66a2?q=80&w=2070') center/cover no-repeat;
+linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+url('https://images.unsplash.com/photo-1596019041100-7c29c90c99ad?q=80&w=2070') center/cover no-repeat;
 z-index:1;
-}
-
-/* затемнення з червоним відтінком */
-.background::after{
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-background:radial-gradient(circle at center, transparent 40%, rgba(255,0,0,0.2));
 }
 
 /* ===== HEADER ===== */
@@ -79,81 +69,43 @@ animation:pulse 1.5s infinite;
 
 @keyframes pulse{
 0%{transform:scale(1);}
-50%{transform:scale(1.12);}
+50%{transform:scale(1.1);}
 100%{transform:scale(1);}
 }
 
-/* ===== 3D ДОРОГА ===== */
-
-.road-container{
-position:absolute;
-bottom:0;
-width:100%;
-height:50%;
-perspective:800px;
-z-index:5;
-}
+/* ===== КОМПАКТНА ДОРОГА ===== */
 
 .road{
 position:absolute;
 bottom:0;
-width:200%;
-height:100%;
-background:linear-gradient(#111,#000);
-transform-origin:bottom;
-transform:rotateX(65deg);
+width:100%;
+height:90px;
+background:#111;
+z-index:5;
+overflow:hidden;
 }
 
 .road::before{
 content:"";
 position:absolute;
-top:0;
-left:50%;
-width:10px;
-height:200%;
+top:40px;
+left:0;
+width:200%;
+height:4px;
 background:
 repeating-linear-gradient(
-to bottom,
+to right,
 white 0px,
 white 40px,
 transparent 40px,
 transparent 80px
 );
-transform:translateX(-50%);
 animation:roadMove 2s linear infinite;
 }
 
-.road::after{
-content:"";
-position:absolute;
-top:0;
-width:100%;
-height:100%;
-border-left:4px solid red;
-border-right:4px solid red;
-box-shadow:0 0 25px red;
-}
-
 @keyframes roadMove{
-from{transform:translate(-50%,0);}
-to{transform:translate(-50%,200px);}
-}
-
-/* ===== BMW ===== */
-
-.car{
-position:absolute;
-bottom:18%;
-left:-600px;
-width:520px;
-z-index:10;
-animation:drive 14s linear infinite;
-filter:drop-shadow(0 0 25px red);
-}
-
-@keyframes drive{
-0%{left:-700px;}
-100%{left:110%;}
+from{transform:translateX(0);}
+to{transform:translateX(-80px);}
 }
 
 /* ===== CENTER ===== */
@@ -173,7 +125,7 @@ z-index:15;
 font-size:42px;
 margin-bottom:25px;
 color:#ff0000;
-text-shadow:0 0 20px red;
+text-shadow:0 0 15px red;
 }
 
 input{
@@ -203,16 +155,17 @@ transition:0.3s;
 button:hover{
 background:#cc0000;
 transform:scale(1.05);
-box-shadow:0 0 20px red;
+box-shadow:0 0 15px red;
 }
 
-/* ===== ПАЧКИ ДОЛАРІВ ===== */
+/* ===== КУПЮРИ (МЕНШЕ) ===== */
 
 .money{
 position:absolute;
 top:-100px;
 animation:fall linear infinite;
 z-index:3;
+opacity:0.9;
 }
 
 @keyframes fall{
@@ -221,7 +174,6 @@ z-index:3;
 }
 
 @media(max-width:768px){
-.car{width:85%;}
 .logo{height:75px;}
 }
 
@@ -240,11 +192,8 @@ z-index:3;
 </div>
 </header>
 
-<div class="road-container">
+<!-- ДОРОГА -->
 <div class="road"></div>
-</div>
-
-<img class="car" src="https://pngimg.com/uploads/bmw/bmw_PNG1718.png" alt="BMW">
 
 <div class="center">
 <h1>Терміновий автовикуп у Києві</h1>
@@ -261,13 +210,15 @@ e.preventDefault();
 window.location.href="tel:+380682901881";
 }
 
-for(let i=0;i<80;i++){
+/* МЕНШЕ КУПЮР */
+
+for(let i=0;i<35;i++){
 let money=document.createElement("div");
 money.classList.add("money");
 money.innerHTML="💵";
 money.style.left=Math.random()*100+"vw";
-money.style.fontSize=(20+Math.random()*40)+"px";
-money.style.animationDuration=(3+Math.random()*4)+"s";
+money.style.fontSize=(20+Math.random()*25)+"px";
+money.style.animationDuration=(4+Math.random()*4)+"s";
 document.body.appendChild(money);
 }
 
