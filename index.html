@@ -1,228 +1,33 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Autocarat — Автовикуп Київ</title>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
-
-body{
-height:100vh;
-overflow:hidden;
-background:#000;
-color:white;
-position:relative;
-}
-
-/* ===== НІЧНИЙ КИЇВ З РОДИНОЮ-МАТІР'Ю ===== */
-
-.background{
-position:absolute;
-width:100%;
-height:100%;
-background:
-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
-url('https://images.unsplash.com/photo-1596019041100-7c29c90c99ad?q=80&w=2070') center/cover no-repeat;
-z-index:1;
-}
-
-/* ===== HEADER ===== */
-
-header{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 50px;
-background:rgba(0,0,0,0.95);
-border-bottom:2px solid red;
-z-index:20;
-}
-
-.logo{
-height:95px;
-}
-
-.phones{
-display:flex;
-flex-direction:column;
-align-items:flex-end;
-gap:6px;
-}
-
-.phone{
-font-size:22px;
-font-weight:bold;
-text-decoration:none;
-color:#ff0000;
-animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.1);}
-100%{transform:scale(1);}
-}
-
-/* ===== КОМПАКТНА ДОРОГА ===== */
-
-.road{
-position:absolute;
-bottom:0;
-width:100%;
-height:90px;
-background:#111;
-z-index:5;
-overflow:hidden;
-}
-
-.road::before{
-content:"";
-position:absolute;
-top:40px;
-left:0;
-width:200%;
-height:4px;
-background:
-repeating-linear-gradient(
-to right,
-white 0px,
-white 40px,
-transparent 40px,
-transparent 80px
-);
-animation:roadMove 2s linear infinite;
-}
-
-@keyframes roadMove{
-from{transform:translateX(0);}
-to{transform:translateX(-80px);}
-}
-
-/* ===== CENTER ===== */
-
-.center{
-position:absolute;
-top:45%;
-left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-width:90%;
-max-width:450px;
-z-index:15;
-}
-
-.center h1{
-font-size:42px;
-margin-bottom:25px;
-color:#ff0000;
-text-shadow:0 0 15px red;
-}
-
-input{
-width:100%;
-padding:15px;
-border-radius:8px;
-border:1px solid red;
-margin-bottom:15px;
-font-size:16px;
-background:black;
-color:white;
-}
-
-button{
-width:100%;
-padding:15px;
-border:none;
-border-radius:8px;
-background:red;
-color:white;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-background:#cc0000;
-transform:scale(1.05);
-box-shadow:0 0 15px red;
-}
-
-/* ===== КУПЮРИ (МЕНШЕ) ===== */
-
-.money{
-position:absolute;
-top:-100px;
-animation:fall linear infinite;
-z-index:3;
-opacity:0.9;
-}
-
-@keyframes fall{
-0%{transform:translateY(-100px) rotate(0deg);}
-100%{transform:translateY(110vh) rotate(360deg);}
-}
-
-@media(max-width:768px){
-.logo{height:75px;}
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autocarat — Автовикуп Київ</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div class="background"></div>
 
 <header>
-<img src="квадрат-07.png" class="logo">
-<div class="phones">
-<a class="phone" href="tel:+380682901881">0682901881 Сергій</a>
-<a class="phone" href="tel:+380637384197">0637384197 Владислав</a>
-</div>
+    <img src="квадрат-07.png" class="logo" alt="Autocarat">
+    <div class="phones">
+        <a class="phone" href="tel:+380682901881">0682901881 Сергій</a>
+        <a class="phone" href="tel:+380637384197">0637384197 Владислав</a>
+    </div>
 </header>
 
-<!-- ДОРОГА -->
 <div class="road"></div>
 
 <div class="center">
-<h1>Терміновий автовикуп у Києві</h1>
-<form onsubmit="callNow(event)">
-<input type="tel" placeholder="Ваш номер телефону" required>
-<button type="submit">Отримати оцінку</button>
-</form>
+    <h1>Терміновий автовикуп у Києві</h1>
+    <form id="leadForm">
+        <input type="tel" placeholder="Ваш номер телефону" required>
+        <button type="submit">Отримати оцінку</button>
+    </form>
 </div>
 
-<script>
-
-function callNow(e){
-e.preventDefault();
-window.location.href="tel:+380682901881";
-}
-
-/* МЕНШЕ КУПЮР */
-
-for(let i=0;i<35;i++){
-let money=document.createElement("div");
-money.classList.add("money");
-money.innerHTML="💵";
-money.style.left=Math.random()*100+"vw";
-money.style.fontSize=(20+Math.random()*25)+"px";
-money.style.animationDuration=(4+Math.random()*4)+"s";
-document.body.appendChild(money);
-}
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
