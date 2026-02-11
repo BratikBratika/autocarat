@@ -14,7 +14,7 @@ font-family:Arial, sans-serif;
 }
 
 body{
-background: url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=2070') no-repeat center center/cover;
+background:url('https://images.unsplash.com/photo-1617814076668-25a7c4d74b5c?q=80&w=2070') no-repeat center center/cover;
 height:100vh;
 overflow:hidden;
 color:white;
@@ -22,14 +22,16 @@ position:relative;
 }
 
 .overlay{
-background:rgba(0,0,0,0.75);
 position:absolute;
 top:0;
 left:0;
 width:100%;
 height:100%;
+background:rgba(0,0,0,0.8);
 z-index:1;
 }
+
+/* HEADER */
 
 header{
 position:fixed;
@@ -39,18 +41,25 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 40px;
-background:rgba(0,0,0,0.9);
+background:rgba(0,0,0,0.95);
 z-index:10;
 }
 
 header img{
-height:50px;
+height:55px;
 }
 
 .phones{
-font-size:22px;
+display:flex;
+flex-direction:column;
+align-items:flex-end;
+font-size:20px;
 font-weight:bold;
+}
+
+.phone{
 color:#ff2a2a;
+text-decoration:none;
 animation:pulse 1.5s infinite;
 }
 
@@ -59,6 +68,8 @@ animation:pulse 1.5s infinite;
 50%{transform:scale(1.15);}
 100%{transform:scale(1);}
 }
+
+/* CENTER */
 
 .center{
 position:absolute;
@@ -72,7 +83,7 @@ z-index:5;
 }
 
 .center h1{
-font-size:38px;
+font-size:36px;
 margin-bottom:20px;
 }
 
@@ -102,12 +113,11 @@ background:#ff0000;
 transform:scale(1.05);
 }
 
-/* --- PREMIUM MONEY RAIN --- */
+/* MONEY RAIN */
 
 .money{
 position:absolute;
 top:-100px;
-font-size:40px;
 animation:fall linear infinite;
 z-index:2;
 }
@@ -119,7 +129,7 @@ opacity:1;
 }
 100%{
 transform:translateY(110vh) rotate(360deg);
-opacity:0.8;
+opacity:0.9;
 }
 }
 
@@ -131,39 +141,43 @@ opacity:0.8;
 <div class="overlay"></div>
 
 <header>
-<img src="logo.png" alt="logo">
+<img src="квадрат-07.png" alt="logo">
+
 <div class="phones">
-<a href="tel:+380682901881" style="color:#ff2a2a;text-decoration:none;">
-068 290 18 81
-</a>
+<a class="phone" href="tel:+380682901881">068 290 18 81</a>
+<a class="phone" href="tel:+380637384197">063 738 41 97 Владислав</a>
 </div>
 </header>
 
 <div class="center">
 <h1>Терміновий автовикуп у Києві</h1>
+
 <form onsubmit="callNow(event)">
 <input type="tel" placeholder="Ваш номер телефону" required>
 <button type="submit">Отримати оцінку</button>
 </form>
+
 </div>
 
 <script>
+
 function callNow(e){
 e.preventDefault();
 window.location.href="tel:+380682901881";
 }
 
-/* Генерація дощу доларів */
+/* PREMIUM MONEY RAIN */
 
-for(let i=0; i<30; i++){
+for(let i=0;i<35;i++){
 let money=document.createElement("div");
 money.classList.add("money");
 money.innerHTML="💵";
 money.style.left=Math.random()*100+"vw";
-money.style.animationDuration=(3+Math.random()*5)+"s";
-money.style.fontSize=(20+Math.random()*50)+"px";
+money.style.fontSize=(25+Math.random()*40)+"px";
+money.style.animationDuration=(4+Math.random()*5)+"s";
 document.body.appendChild(money);
 }
+
 </script>
 
 </body>
