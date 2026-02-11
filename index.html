@@ -1,80 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autocarat — Терміновий автовикуп у Києві</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
 <header class="top-bar">
     <div class="logo">
         <img src="logo.png" alt="Autocarat">
     </div>
 
     <div class="phones">
-        <a href="tel:+380682901881">📞 068 290 18 81 (Сергій)</a>
-        <a href="tel:+380637384197">📞 063 738 41 97 (Владислав)</a>
+        <a href="tel:+380682901881">📞 068 290 18 81</a>
+        <a href="tel:+380637384197">📞 063 738 41 97</a>
     </div>
 </header>
 
-
 <section class="hero">
-  <div class="container hero-content">
-    <h1>Терміновий автовикуп у Києві</h1>
-    <p>Викупимо ваше авто за 30 хвилин. Гроші одразу на місці.</p>
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>Терміновий автовикуп у Києві</h1>
+        <p>Викупимо ваше авто за 30 хвилин. Гроші одразу на місці.</p>
 
-    <form id="leadForm">
-      <input type="text" placeholder="Марка" required>
-      <input type="text" placeholder="Модель" required>
-      <input type="number" placeholder="Рік" required>
-      <input type="tel" placeholder="Ваш телефон" required>
-      <button type="submit">Отримати оцінку</button>
-    </form>
+        <form class="form">
+            <select required>
+                <option value="">Оберіть марку</option>
+                <option>BMW</option>
+                <option>Mercedes</option>
+                <option>Audi</option>
+                <option>Toyota</option>
+                <option>Volkswagen</option>
+                <option>Skoda</option>
+                <option>Ford</option>
+                <option>Renault</option>
+                <option>Nissan</option>
+            </select>
 
-    <div class="messengers">
-      <a href="https://wa.me/380682901881" target="_blank" class="wa">WhatsApp</a>
-      <a href="viber://chat?number=%2B380682901881" class="viber">Viber</a>
+            <input type="text" placeholder="Модель" required>
+
+            <select id="yearSelect" required>
+                <option value="">Оберіть рік</option>
+            </select>
+
+            <input type="tel" placeholder="Ваш телефон" required>
+
+            <a href="tel:+380682901881" class="main-btn">
+                Отримати оцінку
+            </a>
+
+            <div class="messengers">
+                <a href="https://wa.me/380682901881" target="_blank">WhatsApp</a>
+                <a href="viber://chat?number=+380682901881">Viber</a>
+            </div>
+        </form>
     </div>
-  </div>
 </section>
 
-<section class="advantages">
-  <div class="container">
-    <h2>Чому Autocarat?</h2>
-    <div class="grid">
-      <div class="card">💰 Гроші одразу</div>
-      <div class="card">🚗 Виїзд по Києву безкоштовно</div>
-      <div class="card">📄 Викуп кредитних авто</div>
-      <div class="card">⏱ Оцінка за 15 хвилин</div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Autocarat – Автовикуп Київ</p>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
-
-<select name="brand" required>
-    <option value="">Оберіть марку</option>
-    <option>BMW</option>
-    <option>Mercedes</option>
-    <option>Audi</option>
-    <option>Toyota</option>
-    <option>Volkswagen</option>
-    <option>Skoda</option>
-    <option>Ford</option>
-    <option>Renault</option>
-    <option>Nissan</option>
-</select>
-
-<select name="year" required>
-    <option value="">Оберіть рік</option>
-    <script>
-        for (let y = 2025; y >= 1980; y--) {
-            document.write(`<option>${y}</option>`);
-        }
-    </script>
-</select>
-<a href="tel:+380682901881" class="main-btn">
-    Отримати оцінку
-</a>
-<a href="https://wa.me/380682901881" class="main-btn">
-    Отримати оцінку
-</a>
-
+<script>
+    const yearSelect = document.getElementById("yearSelect");
+    for (let y =
