@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0f0f0f;
+  color: white;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+header {
+  background: #000;
+  padding: 15px 0;
+  border-bottom: 1px solid #222;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+}
+
+.contacts a {
+  color: #ff2a2a;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.hero {
+  padding: 100px 0;
+  text-align: center;
+  background: linear-gradient(180deg, #000 0%, #111 100%);
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  margin-bottom: 40px;
+  color: #ccc;
+}
+
+form {
+  display: grid;
+  gap: 15px;
+  max-width: 400px;
+  margin: auto;
+}
+
+form input {
+  padding: 12px;
+  border: none;
+  background: #1c1c1c;
+  color: white;
+  border: 1px solid #333;
+}
+
+form button {
+  padding: 14px;
+  border: none;
+  background: #ff2a2a;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #ff0000;
+}
+
+.messengers {
+  margin-top: 20px;
+}
+
+.messengers a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  border: 1px solid #ff2a2a;
+}
+
+.advantages {
+  padding: 80px 0;
+  background: #111;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.card {
+  padding: 30px;
+  background: #1a1a1a;
+  border: 1px solid #222;
+  transition: 0.3s;
+}
+
+.card:hover {
+  border-color: #ff2a2a;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #666;
+}
