@@ -11,7 +11,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family: 'Arial', sans-serif;
+font-family:Arial, sans-serif;
 }
 
 body{
@@ -22,18 +22,29 @@ color:white;
 position:relative;
 }
 
-/* ФОН */
+/* ===== НІЧНИЙ КИЇВ ===== */
+
 .background{
 position:absolute;
 width:100%;
 height:100%;
 background:
-linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.95)),
-url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070') center/cover no-repeat;
+linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1603481546233-62695b6a66a2?q=80&w=2070') center/cover no-repeat;
 z-index:1;
 }
 
-/* HEADER */
+/* затемнення з червоним відтінком */
+.background::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:radial-gradient(circle at center, transparent 40%, rgba(255,0,0,0.2));
+}
+
+/* ===== HEADER ===== */
+
 header{
 position:fixed;
 top:0;
@@ -41,80 +52,112 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 60px;
+padding:20px 50px;
 background:rgba(0,0,0,0.95);
-border-bottom:2px solid gold;
-z-index:10;
+border-bottom:2px solid red;
+z-index:20;
 }
 
-/* ЛОГО ВЕЛИКИЙ */
 .logo{
-height:90px;
-object-fit:contain;
-filter: drop-shadow(0 0 15px red);
+height:95px;
 }
 
-/* НОМЕРИ */
 .phones{
 display:flex;
 flex-direction:column;
 align-items:flex-end;
-gap:8px;
+gap:6px;
 }
 
 .phone{
 font-size:22px;
 font-weight:bold;
 text-decoration:none;
-background:linear-gradient(90deg,#ff0000,gold);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:glow 2s infinite alternate;
+color:#ff0000;
+animation:pulse 1.5s infinite;
 }
 
-@keyframes glow{
-from{transform:scale(1);}
-to{transform:scale(1.12);}
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.12);}
+100%{transform:scale(1);}
 }
 
-/* ПЛАВАЮЧЕ АВТО */
-.floating-car{
+/* ===== 3D ДОРОГА ===== */
+
+.road-container{
 position:absolute;
-bottom:5%;
-left:-400px;
-width:550px;
+bottom:0;
+width:100%;
+height:50%;
+perspective:800px;
 z-index:5;
-animation:drive 20s linear infinite;
-filter: drop-shadow(0 0 25px gold);
+}
+
+.road{
+position:absolute;
+bottom:0;
+width:200%;
+height:100%;
+background:linear-gradient(#111,#000);
+transform-origin:bottom;
+transform:rotateX(65deg);
+}
+
+.road::before{
+content:"";
+position:absolute;
+top:0;
+left:50%;
+width:10px;
+height:200%;
+background:
+repeating-linear-gradient(
+to bottom,
+white 0px,
+white 40px,
+transparent 40px,
+transparent 80px
+);
+transform:translateX(-50%);
+animation:roadMove 2s linear infinite;
+}
+
+.road::after{
+content:"";
+position:absolute;
+top:0;
+width:100%;
+height:100%;
+border-left:4px solid red;
+border-right:4px solid red;
+box-shadow:0 0 25px red;
+}
+
+@keyframes roadMove{
+from{transform:translate(-50%,0);}
+to{transform:translate(-50%,200px);}
+}
+
+/* ===== BMW ===== */
+
+.car{
+position:absolute;
+bottom:18%;
+left:-600px;
+width:520px;
+z-index:10;
+animation:drive 14s linear infinite;
+filter:drop-shadow(0 0 25px red);
 }
 
 @keyframes drive{
-0%{left:-500px;}
+0%{left:-700px;}
 100%{left:110%;}
 }
 
-/* НОМЕР UA */
-.plate{
-position:absolute;
-bottom:12%;
-left:50%;
-transform:translateX(-50%);
-background:white;
-color:black;
-padding:8px 20px;
-font-weight:bold;
-font-size:20px;
-border-radius:5px;
-z-index:6;
-}
+/* ===== CENTER ===== */
 
-.plate::before{
-content:"UA ";
-color:blue;
-margin-right:5px;
-}
-
-/* CENTER */
 .center{
 position:absolute;
 top:45%;
@@ -123,22 +166,21 @@ transform:translate(-50%,-50%);
 text-align:center;
 width:90%;
 max-width:450px;
-z-index:5;
+z-index:15;
 }
 
 .center h1{
-font-size:40px;
+font-size:42px;
 margin-bottom:25px;
-background:linear-gradient(90deg,#ff0000,gold);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+color:#ff0000;
+text-shadow:0 0 20px red;
 }
 
 input{
 width:100%;
 padding:15px;
 border-radius:8px;
-border:1px solid gold;
+border:1px solid red;
 margin-bottom:15px;
 font-size:16px;
 background:black;
@@ -150,8 +192,8 @@ width:100%;
 padding:15px;
 border:none;
 border-radius:8px;
-background:linear-gradient(90deg,#ff0000,gold);
-color:black;
+background:red;
+color:white;
 font-size:18px;
 font-weight:bold;
 cursor:pointer;
@@ -159,16 +201,18 @@ transition:0.3s;
 }
 
 button:hover{
+background:#cc0000;
 transform:scale(1.05);
-box-shadow:0 0 20px gold;
+box-shadow:0 0 20px red;
 }
 
-/* MONEY RAIN */
+/* ===== ПАЧКИ ДОЛАРІВ ===== */
+
 .money{
 position:absolute;
 top:-100px;
 animation:fall linear infinite;
-z-index:2;
+z-index:3;
 }
 
 @keyframes fall{
@@ -177,8 +221,8 @@ z-index:2;
 }
 
 @media(max-width:768px){
-.floating-car{width:85%;}
-.logo{height:70px;}
+.car{width:85%;}
+.logo{height:75px;}
 }
 
 </style>
@@ -189,16 +233,18 @@ z-index:2;
 <div class="background"></div>
 
 <header>
-<img src="logo.png" class="logo">
+<img src="квадрат-07.png" class="logo">
 <div class="phones">
 <a class="phone" href="tel:+380682901881">0682901881 Сергій</a>
 <a class="phone" href="tel:+380637384197">0637384197 Владислав</a>
 </div>
 </header>
 
-<img class="floating-car" src="https://pngimg.com/uploads/bmw/bmw_PNG1718.png" alt="car">
+<div class="road-container">
+<div class="road"></div>
+</div>
 
-<div class="plate">7777</div>
+<img class="car" src="https://pngimg.com/uploads/bmw/bmw_PNG1718.png" alt="BMW">
 
 <div class="center">
 <h1>Терміновий автовикуп у Києві</h1>
@@ -215,15 +261,13 @@ e.preventDefault();
 window.location.href="tel:+380682901881";
 }
 
-/* ЗОЛОТІ ДОЛАРИ */
-
-for(let i=0;i<40;i++){
+for(let i=0;i<80;i++){
 let money=document.createElement("div");
 money.classList.add("money");
-money.innerHTML="💰";
+money.innerHTML="💵";
 money.style.left=Math.random()*100+"vw";
-money.style.fontSize=(25+Math.random()*35)+"px";
-money.style.animationDuration=(4+Math.random()*6)+"s";
+money.style.fontSize=(20+Math.random()*40)+"px";
+money.style.animationDuration=(3+Math.random()*4)+"s";
 document.body.appendChild(money);
 }
 
