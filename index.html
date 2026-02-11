@@ -1,64 +1,150 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autocarat — Терміновий автовикуп у Києві</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автовикуп Київ</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background: url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=2070') no-repeat center center/cover;
+height:100vh;
+color:white;
+position:relative;
+}
+
+.overlay{
+background:rgba(0,0,0,0.75);
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:rgba(0,0,0,0.9);
+z-index:10;
+}
+
+header img{
+height:50px;
+}
+
+.phones{
+font-size:22px;
+font-weight:bold;
+color:#ff2a2a;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
+.center{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+width:90%;
+max-width:400px;
+}
+
+.center h1{
+font-size:36px;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:15px;
+border-radius:8px;
+border:none;
+margin-bottom:15px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:8px;
+background:#ff2a2a;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#ff0000;
+}
+
+.money{
+position:absolute;
+bottom:20px;
+right:20px;
+font-size:80px;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
+}
+
+</style>
 </head>
+
 <body>
 
-<header class="top-bar">
-    <div class="logo">
-        <img src="logo.png" alt="Autocarat">
-    </div>
+<div class="overlay"></div>
 
-    <div class="phones">
-        <a href="tel:+380682901881">📞 068 290 18 81</a>
-        <a href="tel:+380637384197">📞 063 738 41 97</a>
-    </div>
+<header>
+<img src="logo.png" alt="Autocarat">
+<div class="phones">
+<a href="tel:+380682901881" style="color:#ff2a2a;text-decoration:none;">
+068 290 18 81
+</a>
+</div>
 </header>
 
-<section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-        <h1>Терміновий автовикуп у Києві</h1>
-        <p>Викупимо ваше авто за 30 хвилин. Гроші одразу на місці.</p>
+<div class="center">
+<h1>Терміновий автовикуп у Києві</h1>
+<form onsubmit="callNow(event)">
+<input type="tel" id="phone" placeholder="Ваш номер телефону" required>
+<button type="submit">Отримати оцінку</button>
+</form>
+</div>
 
-        <form class="form">
-            <select required>
-                <option value="">Оберіть марку</option>
-                <option>BMW</option>
-                <option>Mercedes</option>
-                <option>Audi</option>
-                <option>Toyota</option>
-                <option>Volkswagen</option>
-                <option>Skoda</option>
-                <option>Ford</option>
-                <option>Renault</option>
-                <option>Nissan</option>
-            </select>
-
-            <input type="text" placeholder="Модель" required>
-
-            <select id="yearSelect" required>
-                <option value="">Оберіть рік</option>
-            </select>
-
-            <input type="tel" placeholder="Ваш телефон" required>
-
-            <a href="tel:+380682901881" class="main-btn">
-                Отримати оцінку
-            </a>
-
-            <div class="messengers">
-                <a href="https://wa.me/380682901881" target="_blank">WhatsApp</a>
-                <a href="viber://chat?number=+380682901881">Viber</a>
-            </div>
-        </form>
-    </div>
-</section>
+<div class="money">💵💵💵</div>
 
 <script>
-    const yearSelect = document.getElementById("yearSelect");
-    for (let y =
+function callNow(e){
+e.preventDefault();
+let phone = document.getElementById('phone').value;
+window.location.href = "tel:+380682901881";
+}
+</script>
+
+</body>
+</html>
