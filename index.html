@@ -3,36 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Автовикуп Київ</title>
+<title>Autocarat — Автовикуп Київ</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family: 'Arial', sans-serif;
 }
 
 body{
-background:url('https://images.unsplash.com/photo-1617814076668-25a7c4d74b5c?q=80&w=2070') no-repeat center center/cover;
 height:100vh;
 overflow:hidden;
+background:#000;
 color:white;
 position:relative;
 }
 
-.overlay{
+/* ФОН */
+.background{
 position:absolute;
-top:0;
-left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.8);
+background:
+linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.95)),
+url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070') center/cover no-repeat;
 z-index:1;
 }
 
 /* HEADER */
-
 header{
 position:fixed;
 top:0;
@@ -40,60 +41,108 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 40px;
+padding:20px 60px;
 background:rgba(0,0,0,0.95);
+border-bottom:2px solid gold;
 z-index:10;
 }
 
-header img{
-height:55px;
+/* ЛОГО ВЕЛИКИЙ */
+.logo{
+height:90px;
+object-fit:contain;
+filter: drop-shadow(0 0 15px red);
 }
 
+/* НОМЕРИ */
 .phones{
 display:flex;
 flex-direction:column;
 align-items:flex-end;
-font-size:20px;
-font-weight:bold;
+gap:8px;
 }
 
 .phone{
-color:#ff2a2a;
+font-size:22px;
+font-weight:bold;
 text-decoration:none;
-animation:pulse 1.5s infinite;
+background:linear-gradient(90deg,#ff0000,gold);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:glow 2s infinite alternate;
 }
 
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.15);}
-100%{transform:scale(1);}
+@keyframes glow{
+from{transform:scale(1);}
+to{transform:scale(1.12);}
+}
+
+/* ПЛАВАЮЧЕ АВТО */
+.floating-car{
+position:absolute;
+bottom:5%;
+left:-400px;
+width:550px;
+z-index:5;
+animation:drive 20s linear infinite;
+filter: drop-shadow(0 0 25px gold);
+}
+
+@keyframes drive{
+0%{left:-500px;}
+100%{left:110%;}
+}
+
+/* НОМЕР UA */
+.plate{
+position:absolute;
+bottom:12%;
+left:50%;
+transform:translateX(-50%);
+background:white;
+color:black;
+padding:8px 20px;
+font-weight:bold;
+font-size:20px;
+border-radius:5px;
+z-index:6;
+}
+
+.plate::before{
+content:"UA ";
+color:blue;
+margin-right:5px;
 }
 
 /* CENTER */
-
 .center{
 position:absolute;
-top:50%;
+top:45%;
 left:50%;
 transform:translate(-50%,-50%);
 text-align:center;
 width:90%;
-max-width:400px;
+max-width:450px;
 z-index:5;
 }
 
 .center h1{
-font-size:36px;
-margin-bottom:20px;
+font-size:40px;
+margin-bottom:25px;
+background:linear-gradient(90deg,#ff0000,gold);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 input{
 width:100%;
 padding:15px;
 border-radius:8px;
-border:none;
+border:1px solid gold;
 margin-bottom:15px;
 font-size:16px;
+background:black;
+color:white;
 }
 
 button{
@@ -101,20 +150,20 @@ width:100%;
 padding:15px;
 border:none;
 border-radius:8px;
-background:#ff2a2a;
-color:white;
+background:linear-gradient(90deg,#ff0000,gold);
+color:black;
 font-size:18px;
+font-weight:bold;
 cursor:pointer;
 transition:0.3s;
 }
 
 button:hover{
-background:#ff0000;
 transform:scale(1.05);
+box-shadow:0 0 20px gold;
 }
 
 /* MONEY RAIN */
-
 .money{
 position:absolute;
 top:-100px;
@@ -123,14 +172,13 @@ z-index:2;
 }
 
 @keyframes fall{
-0%{
-transform:translateY(-100px) rotate(0deg);
-opacity:1;
+0%{transform:translateY(-100px) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
 }
-100%{
-transform:translateY(110vh) rotate(360deg);
-opacity:0.9;
-}
+
+@media(max-width:768px){
+.floating-car{width:85%;}
+.logo{height:70px;}
 }
 
 </style>
@@ -138,25 +186,26 @@ opacity:0.9;
 
 <body>
 
-<div class="overlay"></div>
+<div class="background"></div>
 
 <header>
-<img src="квадрат-07.png" alt="logo">
-
+<img src="logo.png" class="logo">
 <div class="phones">
-<a class="phone" href="tel:+380682901881">068 290 18 81</a>
-<a class="phone" href="tel:+380637384197">063 738 41 97 Владислав</a>
+<a class="phone" href="tel:+380682901881">0682901881 Сергій</a>
+<a class="phone" href="tel:+380637384197">0637384197 Владислав</a>
 </div>
 </header>
 
+<img class="floating-car" src="https://pngimg.com/uploads/bmw/bmw_PNG1718.png" alt="car">
+
+<div class="plate">7777</div>
+
 <div class="center">
 <h1>Терміновий автовикуп у Києві</h1>
-
 <form onsubmit="callNow(event)">
 <input type="tel" placeholder="Ваш номер телефону" required>
 <button type="submit">Отримати оцінку</button>
 </form>
-
 </div>
 
 <script>
@@ -166,15 +215,15 @@ e.preventDefault();
 window.location.href="tel:+380682901881";
 }
 
-/* PREMIUM MONEY RAIN */
+/* ЗОЛОТІ ДОЛАРИ */
 
-for(let i=0;i<35;i++){
+for(let i=0;i<40;i++){
 let money=document.createElement("div");
 money.classList.add("money");
-money.innerHTML="💵";
+money.innerHTML="💰";
 money.style.left=Math.random()*100+"vw";
-money.style.fontSize=(25+Math.random()*40)+"px";
-money.style.animationDuration=(4+Math.random()*5)+"s";
+money.style.fontSize=(25+Math.random()*35)+"px";
+money.style.animationDuration=(4+Math.random()*6)+"s";
 document.body.appendChild(money);
 }
 
