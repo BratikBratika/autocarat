@@ -162,4 +162,24 @@ box-shadow:0 0 15px red;
 .logo{height:75px;}
 }
 
+/* ===== ДОЛАРИ ===== */
+
+.money{
+position:fixed;
+bottom:0;
+width:100%;
+font-size:28px;
+display:flex;
+justify-content:space-around;
+animation:floatMoney 6s linear infinite;
+z-index:2;
+opacity:0.8;
+}
+
+@keyframes floatMoney{
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
+}
+
 
