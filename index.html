@@ -50,3 +50,31 @@
 </body>
 </html>
 
+<select name="brand" required>
+    <option value="">Оберіть марку</option>
+    <option>BMW</option>
+    <option>Mercedes</option>
+    <option>Audi</option>
+    <option>Toyota</option>
+    <option>Volkswagen</option>
+    <option>Skoda</option>
+    <option>Ford</option>
+    <option>Renault</option>
+    <option>Nissan</option>
+</select>
+
+<select name="year" required>
+    <option value="">Оберіть рік</option>
+    <script>
+        for (let y = 2025; y >= 1980; y--) {
+            document.write(`<option>${y}</option>`);
+        }
+    </script>
+</select>
+<a href="tel:+380682901881" class="main-btn">
+    Отримати оцінку
+</a>
+<a href="https://wa.me/380682901881" class="main-btn">
+    Отримати оцінку
+</a>
+
