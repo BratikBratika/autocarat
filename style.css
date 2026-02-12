@@ -7,3 +7,95 @@ linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
 url('merc.png') center center / cover no-repeat;
 z-index:1;
 }
+
+.phones-top{
+position:fixed;
+top:20px;
+left:30px;
+display:flex;
+flex-direction:column;
+gap:8px;
+z-index:20;
+}
+
+.phone{
+color:#ff0000;
+text-decoration:none;
+font-weight:bold;
+font-size:20px;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+.logo-wrap{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+z-index:15;
+}
+
+.logo{
+height:110px;
+}
+.hero{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+z-index:10;
+}
+
+.big-btn{
+display:inline-block;
+padding:25px 55px;
+font-size:30px;
+font-weight:bold;
+background:red;
+color:white;
+text-decoration:none;
+border-radius:12px;
+box-shadow:0 0 30px red;
+transition:0.3s;
+animation:pulseBig 1.5s infinite;
+}
+
+.big-btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 50px red;
+}
+
+@keyframes pulseBig{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+.messengers{
+margin-top:40px;
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.whatsapp{
+background:#25D366;
+color:white;
+padding:12px 25px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.viber{
+background:#7360F2;
+color:white;
+padding:12px 25px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
