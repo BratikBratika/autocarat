@@ -99,3 +99,42 @@ border-radius:8px;
 text-decoration:none;
 font-weight:bold;
 }
+/* ===== МОБІЛЬНА ВЕРСІЯ ===== */
+
+@media (max-width: 768px){
+
+/* Логотип вліво */
+.logo-wrap{
+    left:15px;
+    transform:none;
+}
+
+.logo{
+    height:60px;
+}
+
+/* Номери вправо */
+.phones-top{
+    right:15px;
+    left:auto;
+    top:15px;
+    align-items:flex-end;
+}
+
+.phone{
+    font-size:14px;
+}
+
+/* Кнопка менша */
+.big-btn{
+    font-size:20px;
+    padding:18px 30px;
+}
+
+/* Месенджери компактні */
+.messengers{
+    flex-direction:column;
+    gap:10px;
+}
+}
+
